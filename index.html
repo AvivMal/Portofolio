@@ -135,6 +135,329 @@
       box-shadow: 0 8px 20px rgba(255,212,40,0.4);
     }
     .btn:hover { opacity: 0.9; }
+    /* כרטיס זכוכית עם חשיפה רכה בכניסה */
+.glass-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 600ms ease;
+}
+.glass-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* שורת הצ'יפס */
+.chips {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin: .5rem 0 1rem;
+}
+.chip {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #222;
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.chip.active {
+  border-color: rgba(255,212,40,0.8);
+  box-shadow: 0 10px 25px rgba(255,212,40,0.4);
+  background: rgba(255,212,40,0.25);
+}
+
+/* אזור התוכן המתחלף */
+.pane-wrapper {
+  position: relative;
+  min-height: 160px;
+}
+.pane {
+  display: none;
+  animation: fadeIn .35s ease;
+}
+.pane.show { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* תגיות (פילים) */
+.pill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .6rem;
+}
+
+/* תהליך */
+.process {
+  margin: .5rem 0 0 0;
+  padding-inline-start: 1.2rem;
+}
+.process li { margin: .35rem 0; }
+
+/* קישורי דוגמה בסגנון תגית */
+.samples {
+  display: flex; gap: .5rem; flex-wrap: wrap;
+}
+.chip-link {
+  text-decoration: none;
+  color: #222;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: .5rem .85rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all .25s ease;
+}
+.chip-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  background: rgba(255,212,40,0.25);
+  border-color: rgba(255,212,40,0.8);
+}
+
+/* טקסט משני */
+.muted { color: #555; display: inline-block; margin-top: .4rem; }
+
+
+/* כרטיס כלי */
+.tool-card {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem;
+  border-radius: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #222;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  cursor: default;
+}
+.tool-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(255,212,40,0.4);
+  border-color: rgba(255,212,40,0.7);
+}
+
+.pill {
+  padding: 0.9rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #222;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+/* במעבר עכבר – אפקט צהוב מודגש */
+.pill:hover {
+  background: rgba(255, 212, 40, 0.25);
+  border-color: rgba(255, 212, 40, 0.7);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 212, 40, 0.4);
+  color: #000;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+.service-card:hover {
+  background: rgba(255, 212, 40, 0.25);
+  border-color: rgba(255, 212, 40, 0.7);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(255, 212, 40, 0.4);
+}
+.service-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.service-card p {
+  margin: 0;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .8rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-weight: 600;
+  color: #222;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all .3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: rgba(255,212,40,0.8);
+  background: rgba(255,212,40,0.25);
+  box-shadow: 0 8px 20px rgba(255,212,40,0.3);
+}
+
+.tool-logo {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.process-card {
+  position: relative;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all .3s ease;
+  overflow: hidden;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,212,40,0.25);
+  border-color: rgba(255,212,40,0.8);
+  box-shadow: 0 8px 20px rgba(255,212,40,0.3);
+}
+
+.process-card .step-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(255,212,40,0.15);
+  pointer-events: none;
+}
+
+.process-card .icon {
+  font-size: 2rem;
+  margin-bottom: .6rem;
+  z-index: 1;
+}
+
+.process-card h4 {
+  margin: .5rem 0;
+  font-size: 1.2rem;
+}
+
+.process-card p {
+  font-size: .95rem;
+  color: #444;
+}
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255,212,40,0.6);
+  z-index: 0;
+}
+
+.timeline-step {
+  text-align: center;
+  width: 22%;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-step .circle {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  border: 2px solid rgba(255,212,40,0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #222;
+  transition: all .3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.timeline-step:hover .circle {
+  background: rgba(255,212,40,0.3);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255,212,40,0.4);
+}
+
+.timeline-step h4 {
+  margin: .5rem 0;
+  font-size: 1.1rem;
+}
+
+.timeline-step p {
+  font-size: .9rem;
+  color: #444;
+}
+
   </style>
 </head>
 <body>
@@ -150,29 +473,148 @@
 
 <section class="hero">
   <div class="hero-text">
-    <h1>פורטפוליו <span> • אביב מלכה</span></h1>
+    <h1>פורטפוליו <span>• אביב מלכה</span></h1>
     <p>
-      מרצה מתגבר במרכז האקדמי פרס ופרילנסר בתחום ההוראה, עם ניסיון רחב בהדרכת סטודנטים ותלמידי תיכון.
-      בעל ניסיון בהוראה תוך הפעלת כלים טכנולוגיים מתקדמים (SQL, Power BI, Genially, PowerPoint, Storyline, SAP).
-      מאופיין בגישה יצירתית, אוריינות טכנולוגית גבוהה ועמידה בלוחות זמנים צפופים.
+      <strong>פרילנסר בפיתוח חוויות למידה דיגיטליות</strong> – מלומדות אינטראקטיביות ועד מצגות פרימיום ויחידות הדרכה מותאמות.
     </p>
-    <a class="btn" href="AvivMalkaCV.pdf">הורד קו״ח</a>
+    <p>
+      <strong>ניסיון עשיר בהוראה אקדמית</strong> ופיתוח חומרי למידה. מרצה־מתרגל במרכז האקדמי פרס
+      וסטודנט מצטיין נשיא במערכות מידע ומנהל עסקים.
+    </p>
+    <p class="muted">
+      לשעבר מאפיין ומיישם מערכות מידע, רמ"ד מערכות מידע וקצין הדרכה בצה"ל.
+    </p>
+    <a class="btn" href="AvivMalkaCV.pdf" target="_blank">הורד קו״ח</a>
   </div>
   <div class="hero-img">
-    <img src="/aviv.png" alt="אביב מלכה">
+    <img src="aviv.png" alt="אביב מלכה">
   </div>
 </section>
 
-<section id="about" class="card">
-  <h2>אודותיי</h2>
-  <p>
-    אני אביב מלכה – יזם, מרצה ומפתח מערכות מידע. כיום מרצה־מתגבר במרכז האקדמי פרס, 
-    ובעבר מיישם מערכות ERP ב־CONSIST,  רמ״ד מערכות מידע ומ״פ הדרכה בצה״ל. 
-    מנוסה בהטמעת מערכות לוגיסטיות, ניתוח נתונים מתקדם ב־SQL ו־Power BI, 
-    ובפיתוח חומרי למידה דיגיטליים חדשניים (Office, Genially, Storyline, AI).
-    בעל יכולות למידה מהירות, חשיבה מחוץ לקופסה וכישורי התמדה מעולים.
-  </p>
-</section>
+
+<section id="about" class="card glass-reveal">
+  <h2>מה אני מציע?</h2>
+
+  <!-- תגיות זכוכית לבחירה -->
+  <div class="chips">
+    <button class="chip active" data-pane="services">💡 שירותים</button>
+    <button class="chip" data-pane="tools">🛠️ כלים</button>
+    <button class="chip" data-pane="process">🔁 תהליך</button>
+  </div>
+
+  <!-- פנל תוכן מתחלף -->
+  <div class="pane-wrapper">
+
+    <!-- שירותים -->
+<div class="pane show" id="pane-services" role="region" aria-label="שירותים">
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>💡 פיתוח חוויות למידה דיגיטליות</h3>
+      <p>המרת ידע וחומרי הדרכה לחוויות למידה מודרניות ואינטראקטיביות שמרתקות את הלומד.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>📊 עיצוב ויזואליזציה של תוכן ונתונים</h3>
+      <p>הפיכת מידע מורכב למצגות ודשבורדים בהירים שמעבירים מסר חד וברור.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>🎯 ליווי והפקת יחידות הדרכה מותאמות</h3>
+      <p>בניית פתרונות למידה מותאמים אישית לארגונים, מרצים וסטודנטים – בהתאם לצרכים ולקהלי יעד שונים.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>✨ עיצוב מצגות ולומדות פרימיום</h3>
+      <p>שילוב קריאייטיביות, עיצוב מודרני וכלים טכנולוגיים מתקדמים כדי להבטיח חוויית למידה בלתי נשכחת.</p>
+    </div>
+
+  </div>
+
+  <div class="pane-cta" style="margin-top:2rem;">
+    <a class="glass-btn" href="#projects">ראה פרויקטים</a>
+    <a class="glass-btn" href="AvivMalkaCV.pdf" download>הורד קו״ח</a>
+  </div>
+</div>
+
+<!-- כלים -->
+<div class="pane" id="pane-tools" role="region" aria-label="כלים">
+  <div class="tool-grid">
+    <div class="tool-card">
+      <img class="tool-logo" src="powerpoint-48.svg" alt="PowerPoint">
+      PowerPoint
+    </div>
+    <div class="tool-card">
+      <img class="tool-logo" src="storyline_256px.png" alt="Storyline">
+      Articulate Storyline
+    </div>
+    <div class="tool-card">
+      <img class="tool-logo" src="Genially.png" alt="Genially">
+      Genially
+    </div>
+    <div class="tool-card">
+      <img class="tool-logo" src="icons8-tableau-software-48.svg" alt="Tableau">
+      Tableau / Power BI
+    </div>
+    <div class="tool-card">
+      <img class="tool-logo" src="notebooklm.svg" alt="NotebookLM">
+      NotebookLM
+    </div>
+    <div class="tool-card">
+      <img class="tool-logo" src="base44.png" alt="Base44">
+      Base44 / Lovable
+    </div>
+        <div class="tool-card">
+      <img class="tool-logo" src="react.svg" alt="Canva">
+      React
+    </div>
+        <div class="tool-card">
+      <img class="tool-logo" src="icons8-vite-48.svg" alt="Canva">
+      Vite
+    </div>
+        <div class="tool-card">
+      <img class="tool-logo" src="javascript.svg" alt="Canva">
+      JavaScript
+    </div>
+    <div class="tool-card">
+      <img class="tool-logo" src="Canva-logo.png" alt="Canva">
+      Canva
+    </div>
+  </div>
+</div>
+</div>
+
+
+    <!-- תהליך -->
+<div class="pane" id="pane-process" role="region" aria-label="תהליך">
+  <h3 style="text-align:center; margin-bottom:2rem;">התהליך שלי</h3>
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="circle">1</div>
+      <h4>איסוף דרישות</h4>
+      <p>הבנת הצרכים והמטרות מול הלקוח.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="circle">2</div>
+      <h4>אפיון ואישור</h4>
+      <p>בניית מבנה התוצר וסטוריבורד ראשוני.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="circle">3</div>
+      <h4>פיתוח ובנייה</h4>
+      <p>יצירת תוכן איכותי, אינטראקטיבי ומעוצב.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="circle">4</div>
+      <h4>אישור ותיקונים</h4>
+      <p>שיתוף סופי עם הלקוח ועדכונים אחרונים.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <a class="glass-btn" href="#contact">בואו נתחיל 🚀</a>
+  </div>
+</div>
 
 
 <section id="projects">
@@ -256,6 +698,28 @@
 <footer>
   © 2025 אביב מלכה •
 </footer>
+<script>
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      // ביטול active בכל הצ'יפים
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      // הצגת הפאנל המתאים
+      const paneId = "pane-" + chip.dataset.pane;
+      document.querySelectorAll('.pane').forEach(p => p.classList.remove('show'));
+      document.getElementById(paneId).classList.add('show');
+    });
+  });
+
+  // אפקט כניסה על גלילה
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("is-visible");
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.glass-reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
